@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signin.css">
+    <title>Sign in - Farming App</title>
+    <style>
+        /* Styles for the eye icon */
+        .password-container {
+            position: relative;
+        }
+
+        .password-container input[type="password"],
+        .password-container input[type="text"] {
+            width: 100%;
+            padding-right: 5px; /* space for the eye icon */
+        }
+
+        .password-container .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        /* Navigation bar styles */
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Account logo styles */
+        .navbar .account-logo {
+            margin-right: 8px;
+        }
+
+        /* Search bar styles */
+        .navbar .search-container {
+            float: right;
+            padding: 14px 16px;
+        }
+
+        .navbar input[type="text"] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .navbar button {
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .navbar button:hover {
+            background: #ccc;
+        }
+
+        /* Cart icon styles */
+        .navbar .cart-container {
+            float: right;
+            padding: 14px 16px;
+            cursor: pointer;
+        }
+
+        .navbar .cart-container .cart-icon {
+            font-size: 24px;
+            color: #f2f2f2;
+        }
+
+        .navbar .cart-container:hover .cart-icon {
+            color: #ddd;
+        }
+
+        /* Main content style with margin to avoid overlap with navbar */
+        .container {
+            margin-top: 60px; /* space to avoid overlap with the navbar */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation bar with shortcut buttons, account logo, search bar, and cart icon -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="account.html">
+        <span class="account-logo">👤</span>Account
+    </a>
+    <div class="search-container">
+        <input type="text" placeholder="Search...">
+        <!--<button type="submit">Search</button>-->
+    </div>
+    <!-- Updated cart-container with anchor tag -->
+    <div class="cart-container">
+        <a href="cart.html">
+            <span class="cart-icon">🛒</span>
+        </a>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Sign-in</h1>
+    <form id="signUpForm">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <!-- Single eye icon to toggle password visibility -->
+                <span class="toggle-password" id="togglePassword">🙈</span>
+            </div>
+            <input type="checkbox" id="showPassword"> Show Password
+        </div>
+        <div class="form-group">
+            <label for="userType">Account Type</label>
+            <select id="userType" name="userType" required>
+                <option value="" disabled selected>Select your option</option>
+                <option value="farmer">Farmer</option>
+                <option value="retailer">Retailer</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit">Sign in</button>
+        </div>
+    </form>
+    <div id="signUpMessage" class="message" style="display: none;"></div>
+    <p>Don't have an account? <a href="signup1.html">Sign up</a></p>
+</div>
+
+<script>
+// JavaScript to toggle password visibility using the eye icon and checkbox
+const togglePassword = document.getElementById('togglePassword');
+const passwordInput = document.getElementById('password');
+const showPasswordCheckbox = document.getElementById('showPassword');
+
+// Function to toggle password visibility
+function togglePasswordVisibility() {
+    if (showPasswordCheckbox.checked) {
+        passwordInput.type = 'text';
+        togglePassword.textContent = '👁';
+    } else {
+        passwordInput.type = 'password';
+        togglePassword.textContent = '🙈';
+    }
+}
+
+// Update the icon and password visibility when the checkbox is toggled
+showPasswordCheckbox.addEventListener('change', togglePasswordVisibility);
+
+// Set the initial state of the eye icon
+togglePasswordVisibility();
+
+</script>
+
+</body>
+</html>

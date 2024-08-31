@@ -1,0 +1,86 @@
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #d1efd8;
+    margin: 0;
+}
+
+
+.container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+    width: 100%;
+    border-left: 5px solid #32a852;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size:24px;
+    font-weight: bold;
+    color: #32a852;
+}
+.form-group  {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-group button {
+    background-color: #32a852;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+.form-group button:hover {
+    background-color: #279043;
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus,
+.form-group select:focus {
+    border-color: #32a852; /* Green border on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(50, 168, 82, 0.5); /* Subtle shadow for focus */
+}
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        max-width: 100%; /* Take full width on smaller screens */
+    }
+    h1 {
+        font-size: 20px; /* Slightly smaller headings on mobile */
+    }
+}
+.form-group button {
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+}
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
